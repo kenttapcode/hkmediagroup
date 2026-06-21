@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>HKMediaGroup Academy - Học Facebook Ads Thực Chiến</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#001848",
+                        "surface-container-low": "#f1f3ff",
+                        "primary": "#003d9b",
+                        "primary-fixed-dim": "#b2c5ff",
+                        "on-tertiary-container": "#cdd3de",
+                        "inverse-primary": "#b2c5ff",
+                        "on-primary": "#ffffff",
+                        "tertiary": "#3d444c",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#d7e2ff",
+                        "on-secondary-container": "#616363",
+                        "on-tertiary-fixed": "#161c24",
+                        "background": "#f9f9ff",
+                        "on-secondary-fixed-variant": "#454747",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "outline": "#737685",
+                        "on-tertiary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#c1c7d1",
+                        "primary-fixed": "#dae2ff",
+                        "surface-container-high": "#e0e8ff",
+                        "secondary-container": "#dfe0e0",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#cadaff",
+                        "on-primary-container": "#c4d2ff",
+                        "on-background": "#041b3c",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f9f9ff",
+                        "primary-container": "#0052cc",
+                        "tertiary-fixed": "#dde3ee",
+                        "secondary": "#5d5f5f",
+                        "on-primary-fixed-variant": "#0040a2",
+                        "on-tertiary-fixed-variant": "#414750",
+                        "surface-bright": "#f9f9ff",
+                        "inverse-surface": "#1d3052",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#e2e2e2",
+                        "surface-tint": "#0c56d0",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "surface-container-highest": "#d7e2ff",
+                        "on-surface": "#041b3c",
+                        "inverse-on-surface": "#edf0ff",
+                        "on-surface-variant": "#434654",
+                        "tertiary-container": "#555b64",
+                        "outline-variant": "#c3c6d6",
+                        "surface-container": "#e8edff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "unit": "8px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px",
+                        "section-gap": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Be Vietnam Pro"],
+                        "label-md": ["Be Vietnam Pro"],
+                        "headline-lg": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "caption": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"],
+                        "display-lg": ["Be Vietnam Pro"],
+                        "body-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "caption": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .ambient-shadow {
+            box-shadow: 0 4px 20px rgba(0, 82, 204, 0.08);
+        }
+
+        .ambient-shadow-hover:hover {
+            box-shadow: 0 8px 30px rgba(0, 82, 204, 0.12);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #e8edff 0%, #f9f9ff 100%);
+        }
+
+        .step-line::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            width: 100%;
+            height: 2px;
+            background-image: linear-gradient(to right, #003d9b 50%, transparent 50%);
+            background-size: 8px 2px;
+            background-repeat: repeat-x;
+            z-index: -1;
+        }
+
+        .step-line:last-child::after {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .step-line::after {
+                top: 100%;
+                left: 24px;
+                width: 2px;
+                height: 100%;
+                background-image: linear-gradient(to bottom, #003d9b 50%, transparent 50%);
+                background-size: 2px 8px;
+                background-repeat: repeat-y;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface antialiased pb-24">
+    <!-- Navigation -->
+    <nav
+        class="bg-surface/80 dark:bg-inverse-surface/80 backdrop-blur-md shadow-sm docked full-width top-0 sticky z-50 transition-transform active:scale-95 glass-nav">
+        <div
+            class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between h-20 w-full">
+            <div class="flex items-center gap-4">
+                <img alt="HKMediaGroup Logo" class="h-8 w-auto object-contain" src="./hkmediagroup-logo.png">
+                <span
+                    class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">HKMediaGroup</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-body-md text-body-md text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1"
+                    href="#">Khóa học</a>
+                <a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-primary/5 dark:hover:bg-primary-fixed/10 transition-all rounded-md px-2 py-1"
+                    href="#">Lộ trình</a>
+                <a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-primary/5 dark:hover:bg-primary-fixed/10 transition-all rounded-md px-2 py-1"
+                    href="#">Case Study</a>
+                <a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-primary/5 dark:hover:bg-primary-fixed/10 transition-all rounded-md px-2 py-1"
+                    href="#">Dịch vụ</a>
+                <a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-primary/5 dark:hover:bg-primary-fixed/10 transition-all rounded-md px-2 py-1"
+                    href="#">Blog</a>
+            </div>
+            <button class="md:hidden p-2 text-on-surface-variant hover:bg-primary/5 rounded-md transition-colors">
+                <span class="material-symbols-outlined">menu</span>
+            </button><button
+                class="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md px-6 py-2.5 rounded shadow-[0_4px_14px_0_rgba(0,61,155,0.39)] transition-all">Đăng
+                ký</button>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-16 pb-24 px-margin-mobile md:px-margin-desktop overflow-hidden">
+        <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center">
+            <div class="space-y-8 md:text-left">
+                <h1 class="font-display-lg text-display-lg text-on-surface leading-tight">
+                    Học Facebook Ads <br>
+                    <span class="text-primary">thực chiến</span>, <br>
+                    chạy quảng cáo <br>
+                    ra đơn bài bản
+                </h1>
+                <p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                    Từ người mới bắt đầu đến chuyên gia – nắm vững tư duy, chiến lược và kỹ thuật để tối ưu chi phí,
+                    tăng doanh thu bền vững.
+                </p>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button
+                        class="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md px-8 py-3.5 rounded-lg shadow-[0_4px_14px_0_rgba(0,61,155,0.39)] transition-all flex items-center gap-2">
+                        Nhận lộ trình học
+                        <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                    </button>
+                    <button
+                        class="bg-surface hover:bg-surface-container-low text-primary border-2 border-primary font-label-md text-label-md px-8 py-3.5 rounded-lg transition-all flex items-center gap-2">
+                        Xem khóa học
+                        <span class="material-symbols-outlined text-[20px]">play_circle</span>
+                    </button>
+                </div>
+                <div class="flex flex-wrap gap-6 pt-4 border-t border-outline-variant justify-center">
+                    <div class="flex items-center gap-2 text-on-surface-variant font-caption text-caption">
+                        <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                        Học thực chiến 100%
+                    </div>
+                    <div class="flex items-center gap-2 text-on-surface-variant font-caption text-caption">
+                        <span class="material-symbols-outlined text-primary text-[20px]">school</span>
+                        Giảng viên 8+ năm kinh nghiệm
+                    </div>
+                    <div class="flex items-center gap-2 text-on-surface-variant font-caption text-caption">
+                        <span class="material-symbols-outlined text-primary text-[20px]">support_agent</span>
+                        Hỗ trợ 1:1 trọn đời
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-4 bg-primary/5 rounded-3xl blur-2xl z-0"></div>
+                <img alt="Dashboard Visual"
+                    class="relative z-10 w-full h-auto rounded-2xl shadow-2xl border border-white/20"
+                    src="./banner-hkmediagroup.jpg">
+            </div>
+        </div>
+    </section>
+    <!-- Stats Bar -->
+    <section class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop -mt-12 relative z-20">
+        <div
+            class="bg-surface rounded-2xl ambient-shadow p-8 flex flex-col md:flex-row justify-around items-center gap-8 border border-white text-center">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[28px]">group</span>
+                </div>
+                <div>
+                    <div class="font-headline-md text-headline-md text-primary">1.000+</div>
+                    <div class="font-body-md text-body-md text-on-surface-variant">Học viên đã tốt nghiệp</div>
+                </div>
+            </div>
+            <div class="hidden md:block w-px h-12 bg-outline-variant"></div>
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[28px]">corporate_fare</span>
+                </div>
+                <div>
+                    <div class="font-headline-md text-headline-md text-primary">300+</div>
+                    <div class="font-body-md text-body-md text-on-surface-variant">Doanh nghiệp tin tưởng</div>
+                </div>
+            </div>
+            <div class="hidden md:block w-px h-12 bg-outline-variant"></div>
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-[28px]">star</span>
+                </div>
+                <div>
+                    <div class="font-headline-md text-headline-md text-primary">4.9/5</div>
+                    <div class="font-body-md text-body-md text-on-surface-variant">Đánh giá từ học viên</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Problems Section -->
+    <section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background">
+        <div class="max-w-container-max mx-auto text-center space-y-12">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Bạn có đang gặp các vấn đề này?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-surface rounded-2xl p-6 ambient-shadow ambient-shadow-hover text-left flex flex-col items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-error-container text-error flex items-center justify-center">
+                        <span class="material-symbols-outlined">trending_down</span>
+                    </div>
+                    <h3 class="font-label-md text-label-md text-on-surface">Chi phí cao</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Quảng cáo tốn kém nhưng không ra đơn,
+                        CPA vượt quá lợi nhuận.</p>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-surface rounded-2xl p-6 ambient-shadow ambient-shadow-hover text-left flex flex-col items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-error-container text-error flex items-center justify-center">
+                        <span class="material-symbols-outlined">map</span>
+                    </div>
+                    <h3 class="font-label-md text-label-md text-on-surface">Không có chiến lược</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Chạy ads theo cảm tính, không có kế
+                        hoạch rõ ràng và đo lường.</p>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-surface rounded-2xl p-6 ambient-shadow ambient-shadow-hover text-left flex flex-col items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-error-container text-error flex items-center justify-center">
+                        <span class="material-symbols-outlined">person_off</span>
+                    </div>
+                    <h3 class="font-label-md text-label-md text-on-surface">Tỷ lệ chuyển đổi thấp</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Nhiều click nhưng ít đơn vì nội dung,
+                        page hoặc phễu chưa tối ưu.</p>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="bg-surface rounded-2xl p-6 ambient-shadow ambient-shadow-hover text-left flex flex-col items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-error-container text-error flex items-center justify-center">
+                        <span class="material-symbols-outlined">help_center</span>
+                    </div>
+                    <h3 class="font-label-md text-label-md text-on-surface">Target sai đối tượng</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">Nhắm sai tệp khách hàng, quảng cáo
+                        không tiếp cận đúng người.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Timeline Section -->
+    <section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+        <div class="max-w-container-max mx-auto text-center space-y-16">
+            <div class="space-y-4">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Bạn sẽ học được gì?</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">Lộ trình bài bản từ nền tảng đến nâng cao –
+                    100% thực chiến.</p>
+            </div>
+            <div class="relative grid grid-cols-1 md:grid-cols-6 gap-8">
+                <!-- Step 1 -->
+                <div
+                    class="relative step-line flex flex-col items-center text-center gap-4 md:items-start md:text-left z-10">
+                    <div
+                        class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md z-10 relative shadow-md">
+                        1</div>
+                    <div class="bg-surface rounded-xl p-6 ambient-shadow w-full">
+                        <div class="text-primary mb-2"><span class="material-symbols-outlined">menu_book</span></div>
+                        <h3 class="font-label-md text-label-md text-on-surface mb-2">Nền tảng Facebook Ads</h3>
+                        <p class="font-caption text-caption text-on-surface-variant">Hiểu bản chất, tài khoản, chính
+                            sách và các loại chiến dịch.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div
+                    class="relative step-line flex flex-col items-center text-center gap-4 md:items-start md:text-left z-10">
+                    <div
+                        class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md z-10 relative shadow-md">
+                        2</div>
+                    <div class="bg-surface rounded-xl p-6 ambient-shadow w-full">
+                        <div class="text-primary mb-2"><span class="material-symbols-outlined">analytics</span></div>
+                        <h3 class="font-label-md text-label-md text-on-surface mb-2">Nghiên cứu &amp; Chiến lược</h3>
+                        <p class="font-caption text-caption text-on-surface-variant">Nghiên cứu thị trường, chân dung
+                            khách hàng và xây dựng chiến lược hiệu quả.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div
+                    class="relative step-line flex flex-col items-center text-center gap-4 md:items-start md:text-left z-10">
+                    <div
+                        class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md z-10 relative shadow-md">
+                        3</div>
+                    <div class="bg-surface rounded-xl p-6 ambient-shadow w-full">
+                        <div class="text-primary mb-2"><span class="material-symbols-outlined">draw</span></div>
+                        <h3 class="font-label-md text-label-md text-on-surface mb-2">Sáng tạo &amp; Nội dung</h3>
+                        <p class="font-caption text-caption text-on-surface-variant">Viết content quảng cáo, thiết kế
+                            hình ảnh, video thu hút chuyển đổi.</p>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div
+                    class="relative step-line flex flex-col items-center text-center gap-4 md:items-start md:text-left z-10">
+                    <div
+                        class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md z-10 relative shadow-md">
+                        4</div>
+                    <div class="bg-surface rounded-xl p-6 ambient-shadow w-full">
+                        <div class="text-primary mb-2"><span class="material-symbols-outlined">settings</span></div>
+                        <h3 class="font-label-md text-label-md text-on-surface mb-2">Thiết lập chiến dịch</h3>
+                        <p class="font-caption text-caption text-on-surface-variant">Cài đặt chiến dịch, cấu trúc tài
+                            khoản, tracking và đo lường chuẩn.</p>
+                    </div>
+                </div>
+                <!-- Step 5 -->
+                <div
+                    class="relative step-line flex flex-col items-center text-center gap-4 md:items-start md:text-left z-10">
+                    <div
+                        class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md z-10 relative shadow-md">
+                        5</div>
+                    <div class="bg-surface rounded-xl p-6 ambient-shadow w-full">
+                        <div class="text-primary mb-2"><span class="material-symbols-outlined">trending_up</span></div>
+                        <h3 class="font-label-md text-label-md text-on-surface mb-2">Tối ưu &amp; Scale</h3>
+                        <p class="font-caption text-caption text-on-surface-variant">Phân tích số liệu, tối ưu chi phí,
+                            scale chiến dịch hiệu quả và bền vững.</p>
+                    </div>
+                </div>
+                <!-- Step 6 -->
+                <div
+                    class="relative step-line flex flex-col items-center text-center gap-4 md:items-start md:text-left z-10">
+                    <div
+                        class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-label-md z-10 relative shadow-md">
+                        6</div>
+                    <div class="bg-surface rounded-xl p-6 ambient-shadow w-full">
+                        <div class="text-primary mb-2"><span class="material-symbols-outlined">emoji_events</span></div>
+                        <h3 class="font-label-md text-label-md text-on-surface mb-2">Case Study thực chiến</h3>
+                        <p class="font-caption text-caption text-on-surface-variant">Phân tích case thật, rút kinh
+                            nghiệm và áp dụng vào dự án của bạn.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Pricing Section -->
+    <section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background">
+        <div class="max-w-container-max mx-auto text-center space-y-12">
+            <div class="space-y-4">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">Học phí minh bạch – Giá trị xứng đáng</h2>
+                <p class="font-body-lg text-body-lg text-on-surface-variant">Chọn gói học phù hợp với mục tiêu của bạn.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <!-- Basic Tier -->
+                <div
+                    class="bg-surface rounded-2xl p-8 ambient-shadow border border-outline-variant flex flex-col h-full text-left">
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-2">Cơ bản</h3>
+                    <div class="font-display-lg text-display-lg text-primary mb-6">2.990.000đ</div>
+                    <ul class="space-y-4 flex-grow mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant">Truy cập toàn bộ video khóa
+                                học</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant">Tài liệu &amp; template thực
+                                chiến</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant">Tham gia cộng đồng học
+                                viên</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant">Hỗ trợ trong quá trình
+                                học</span>
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full bg-surface hover:bg-surface-container-low text-primary border-2 border-primary font-label-md text-label-md py-3 rounded-lg transition-all">Đăng
+                        ký ngay</button>
+                </div>
+                <!-- Pro Tier (Highlighted) -->
+                <div
+                    class="bg-surface rounded-2xl p-8 ambient-shadow border-2 border-primary shadow-xl relative flex flex-col z-10 text-left my-8">
+                    <div
+                        class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-primary text-on-primary font-label-md text-label-md px-4 py-1 rounded-full">
+                        Phổ biến nhất</div>
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-2 mt-4">Chuyên sâu</h3>
+                    <div class="font-display-lg text-display-lg text-primary mb-6">6.990.000đ</div>
+                    <ul class="space-y-4 flex-grow mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant font-bold">Tất cả trong gói
+                                Cơ bản</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant">Workshop thực chiến hàng
+                                tuần</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant">Giải bài tập &amp; feedback
+                                1:1</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant">Hỗ trợ trọn đời khóa
+                                học</span>
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md py-3 rounded-lg shadow-lg transition-all">Đăng
+                        ký ngay</button>
+                </div>
+                <!-- VIP Tier -->
+                <div
+                    class="bg-surface rounded-2xl p-8 ambient-shadow border border-outline-variant flex flex-col h-full text-left">
+                    <h3 class="font-headline-md text-headline-md text-on-surface mb-2">VIP 1:1</h3>
+                    <div class="font-display-lg text-display-lg text-primary mb-6">14.990.000đ</div>
+                    <ul class="space-y-4 flex-grow mb-8">
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant font-bold">Tất cả trong gói
+                                Chuyên sâu</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant">Kèm 1:1 theo dự án thực
+                                tế</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant">Xây dựng chiến lược
+                                riêng</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-primary text-[20px] mt-0.5">check</span>
+                            <span class="font-body-md text-body-md text-on-surface-variant">Cam kết đồng hành đến khi
+                                đạt kết quả</span>
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full bg-surface hover:bg-surface-container-low text-primary border-2 border-primary font-label-md text-label-md py-3 rounded-lg transition-all">Đăng
+                        ký ngay</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section -->
+    <section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+        <div class="max-w-container-max mx-auto max-w-3xl space-y-8">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface text-center mb-12">Câu hỏi thường gặp</h2>
+            <div class="space-y-4">
+                <details
+                    class="group bg-surface rounded-xl ambient-shadow [&amp;_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <h3 class="font-label-md text-label-md text-on-surface">Khóa học có phù hợp cho người mới chưa
+                            biết gì không?</h3>
+                        <span
+                            class="material-symbols-outlined text-outline transition duration-300 group-open:-rotate-180">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 font-body-md text-body-md text-on-surface-variant">
+                        Hoàn toàn phù hợp. Lộ trình được thiết kế từ cơ bản đến nâng cao, có hướng dẫn chi tiết từng
+                        bước cho người mới bắt đầu.
+                    </div>
+                </details>
+                <details
+                    class="group bg-surface rounded-xl ambient-shadow [&amp;_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <h3 class="font-label-md text-label-md text-on-surface">Học xong có được hỗ trợ không?</h3>
+                        <span
+                            class="material-symbols-outlined text-outline transition duration-300 group-open:-rotate-180">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 font-body-md text-body-md text-on-surface-variant">
+                        Có. Học viên được tham gia cộng đồng hỗ trợ trọn đời và giải đáp thắc mắc trực tiếp từ giảng
+                        viên.
+                    </div>
+                </details>
+                <details
+                    class="group bg-surface rounded-xl ambient-shadow [&amp;_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer">
+                        <h3 class="font-label-md text-label-md text-on-surface">Thời lượng khóa học là bao lâu?</h3>
+                        <span
+                            class="material-symbols-outlined text-outline transition duration-300 group-open:-rotate-180">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 font-body-md text-body-md text-on-surface-variant">
+                        Khóa học bao gồm hơn 30 giờ video bài giảng chất lượng cao, bạn có thể học theo tiến độ của
+                        riêng mình.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Banner -->
+    <section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-background">
+        <div class="max-w-container-max mx-auto">
+            <div class="bg-primary rounded-3xl p-12 text-center text-on-primary relative overflow-hidden">
+                <div class="relative z-10 space-y-6">
+                    <h2 class="font-headline-lg text-headline-lg">Sẵn sàng bứt phá doanh thu với Facebook Ads?</h2>
+                    <p class="font-body-lg text-body-lg text-primary-fixed-dim max-w-2xl mx-auto">Đăng ký tư vấn miễn
+                        phí 1:1 cùng chuyên gia để nhận lộ trình phù hợp nhất cho bạn.</p>
+                    <button
+                        class="bg-on-primary hover:bg-surface-container-low text-primary font-label-md text-label-md px-8 py-4 rounded-lg shadow-lg transition-all inline-flex items-center gap-2 mt-4">
+                        Đăng ký tư vấn ngay
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </button>
+                </div>
+                <!-- Abstract BG Elements -->
+                <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                    <div class="absolute -top-24 -left-24 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+                    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer
+        class="bg-inverse-surface dark:bg-surface-container-highest full-width max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-section-gap grid grid-cols-1 md:grid-cols-4 gap-gutter text-inverse-on-surface dark:text-on-surface text-center">
+        <div class="space-y-4 col-span-1 md:col-span-1">
+            <div
+                class="font-headline-md text-headline-md font-bold text-inverse-on-surface dark:text-on-surface flex items-center gap-2 justify-center">
+                <img alt="HKMediaGroup Logo Footer" class="h-8 w-auto object-contain grayscale brightness-200"
+                    src="./hkmediagroup-logo.png">
+                HKMediaGroup
+            </div>
+            <p class="font-caption text-caption text-on-tertiary-container dark:text-on-surface-variant">Trung tâm đào
+                tạo Facebook Ads thực chiến hàng đầu Việt Nam. Đồng hành cùng cá nhân và doanh nghiệp bứt phá doanh thu.
+            </p>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-label-md text-label-md">Khóa học</h4>
+            <ul class="space-y-2">
+                <li class=""><a
+                        class="font-body-md text-body-md text-on-tertiary-container dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors"
+                        href="#">Tất cả khóa học</a></li>
+                <li class=""><a
+                        class="font-body-md text-body-md text-on-tertiary-container dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors"
+                        href="#">Lộ trình học</a></li>
+                <li class=""><a
+                        class="font-body-md text-body-md text-on-tertiary-container dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors"
+                        href="#">Học viên thành công</a></li>
+            </ul>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-label-md text-label-md">Về chúng tôi</h4>
+            <ul class="space-y-2">
+                <li class=""><a
+                        class="font-body-md text-body-md text-on-tertiary-container dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors"
+                        href="#">Về chúng tôi</a></li>
+                <li class=""><a
+                        class="font-body-md text-body-md text-on-tertiary-container dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors"
+                        href="#">Điều khoản</a></li>
+                <li class=""><a
+                        class="font-body-md text-body-md text-on-tertiary-container dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors"
+                        href="#">Chính sách bảo mật</a></li>
+                <li class=""><a
+                        class="font-body-md text-body-md text-on-tertiary-container dark:text-on-surface-variant hover:text-primary-fixed-dim transition-colors"
+                        href="#">Liên hệ</a></li>
+            </ul>
+        </div>
+        <div class="space-y-4">
+            <h4 class="font-label-md text-label-md">Liên hệ</h4>
+            <ul class="space-y-2 font-caption text-caption text-on-tertiary-container dark:text-on-surface-variant">
+                <li class="flex items-center gap-2 justify-center"><span
+                        class="material-symbols-outlined text-[16px]">phone</span> 0978.021.021</li>
+                <li class="flex items-center gap-2 justify-center"><span
+                        class="material-symbols-outlined text-[16px]">mail</span> info@hkmediagroup.vn</li>
+                <li class="flex items-center gap-2 justify-center"><span
+                        class="material-symbols-outlined text-[16px]">location_on</span> Số 123, Nguyễn Trãi, Q.1,
+                    TP.HCM</li>
+            </ul>
+        </div>
+        <div
+            class="col-span-1 md:col-span-4 border-t border-on-tertiary-container/20 mt-8 pt-8 text-center font-caption text-caption text-on-tertiary-container dark:text-on-surface-variant">
+            © 2024 HKMediaGroup. All rights reserved.
+        </div>
+    </footer>
+
+
+    <div
+        class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-md border-t border-outline-variant shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
+        <div class="flex justify-around items-center py-3 px-4">
+            <a href="tel:0901234567" class="flex flex-col items-center gap-1 text-primary">
+                <span class="material-symbols-outlined">phone</span>
+                <span class="text-[10px] font-label-md">Gọi điện</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-1 text-on-surface-variant">
+                <span class="material-symbols-outlined">chat</span>
+                <span class="text-[10px] font-label-md">Zalo</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-1 text-on-surface-variant">
+                <span class="material-symbols-outlined">forum</span>
+                <span class="text-[10px] font-label-md">Messenger</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-1 text-on-surface-variant">
+                <span class="material-symbols-outlined">send</span>
+                <span class="text-[10px] font-label-md">Telegram</span>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
