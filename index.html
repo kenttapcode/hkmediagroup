@@ -184,13 +184,48 @@
                 <a class="font-body-md text-body-md text-on-surface-variant dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-primary/5 dark:hover:bg-primary-fixed/10 transition-all rounded-md px-2 py-1"
                     href="#">Blog</a>
             </div>
-            <button class="md:hidden p-2 text-on-surface-variant hover:bg-primary/5 rounded-md transition-colors">
-                <span class="material-symbols-outlined">menu</span>
+            <button id="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false"
+                class="md:hidden p-2 text-on-surface-variant hover:bg-primary/5 rounded-md transition-colors">
+                <span id="mobile-menu-icon" class="material-symbols-outlined">menu</span>
             </button><button
                 class="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md text-label-md px-6 py-2.5 rounded shadow-[0_4px_14px_0_rgba(0,61,155,0.39)] transition-all">Đăng
                 ký</button>
         </div>
     </nav>
+    <!-- Mobile Menu Drawer (Slide-in from left, 70% width, full height) -->
+    <div id="mobile-menu-overlay"
+        class="md:hidden fixed inset-0 z-[60] bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out">
+    </div>
+    <div id="mobile-menu"
+        class="md:hidden fixed top-0 left-0 z-[70] h-full w-[70%] max-w-sm bg-surface dark:bg-inverse-surface shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="flex items-center justify-between h-20 px-margin-mobile border-b border-outline-variant shrink-0">
+            <div class="flex items-center gap-3">
+                <img alt="HKMediaGroup Logo" class="h-7 w-auto object-contain" src="./hkmediagroup-logo.png">
+                <span
+                    class="font-label-md text-label-md font-bold text-primary dark:text-primary-fixed-dim">HKMediaGroup</span>
+            </div>
+            <button id="mobile-menu-close" aria-label="Close menu"
+                class="p-2 text-on-surface-variant hover:bg-primary/5 rounded-md transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <nav class="flex-1 overflow-y-auto px-margin-mobile py-4 flex flex-col gap-1">
+            <a href="#"
+                class="font-body-md text-body-md text-on-surface dark:text-inverse-on-surface hover:bg-primary/5 dark:hover:bg-primary-fixed/10 rounded-md px-4 py-3 transition-colors">Khóa
+                học</a>
+            <a href="#"
+                class="font-body-md text-body-md text-on-surface dark:text-inverse-on-surface hover:bg-primary/5 dark:hover:bg-primary-fixed/10 rounded-md px-4 py-3 transition-colors">Lộ
+                trình</a>
+            <a href="#"
+                class="font-body-md text-body-md text-on-surface dark:text-inverse-on-surface hover:bg-primary/5 dark:hover:bg-primary-fixed/10 rounded-md px-4 py-3 transition-colors">Case
+                Study</a>
+            <a href="#"
+                class="font-body-md text-body-md text-on-surface dark:text-inverse-on-surface hover:bg-primary/5 dark:hover:bg-primary-fixed/10 rounded-md px-4 py-3 transition-colors">Dịch
+                vụ</a>
+            <a href="#"
+                class="font-body-md text-body-md text-on-surface dark:text-inverse-on-surface hover:bg-primary/5 dark:hover:bg-primary-fixed/10 rounded-md px-4 py-3 transition-colors">Blog</a>
+        </nav>
+    </div>
     <!-- Hero Section -->
     <section class="hero-gradient pt-16 pb-24 px-margin-mobile md:px-margin-desktop overflow-hidden">
         <div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center">
@@ -673,6 +708,89 @@
             </a>
         </div>
     </div>
+
+    <script>
+            (function () {
+                const btn = document.getElementById('mobile-menu-btn');
+                const closeBtn = document.getElementById('mobile-menu-close');
+                const menu = document.getElementById('mobile-menu');
+                const overlay = document.getElementById('mobile-menu-overlay');
+                const icon = document.getElementById('mobile-menu-icon');
+
+                if (!btn || !menu || !overlay || !icon) return;
+
+                let isOpen = false;
+
+                function openMenu() {
+                    menu.classList.remove('-translate-x-full');
+                    menu.classList.add('translate-x-0');
+                    overlay.classList.remove('opacity-0', 'pointer-events-none');
+                    overlay.classList.add('opacity-100', 'pointer-events-auto');
+                    icon.textContent = 'close';
+                    btn.setAttribute('aria-expanded', 'true');
+                    document.body.classList.add('overflow-hidden');
+                    isOpen = true;
+                }
+
+                function closeMenu() {
+                    menu.classList.add('-translate-x-full');
+                    menu.classList.remove('translate-x-0');
+                    overlay.classList.add('opacity-0', 'pointer-events-none');
+                    overlay.classList.remove('opacity-100', 'pointer-events-auto');
+                    icon.textContent = 'menu';
+                    btn.setAttribute('aria-expanded', 'false');
+                    document.body.classList.remove('overflow-hidden');
+                    isOpen = false;
+                }
+
+                function toggleMenu() {
+                    if (isOpen) {
+                        closeMenu();
+                    } else {
+                        openMenu();
+                    }
+                }
+
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    toggleMenu();
+                });
+
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        closeMenu();
+                    });
+                }
+
+                // Click overlay (outside menu) closes the menu
+                overlay.addEventListener('click', closeMenu);
+
+                // Prevent clicks inside the menu from bubbling to overlay
+                menu.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                });
+
+                // Close menu when clicking on a link inside the mobile menu
+                menu.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', closeMenu);
+                });
+
+                // Close menu when pressing Escape
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && isOpen) {
+                        closeMenu();
+                    }
+                });
+
+                // Reset state if resized to desktop
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth >= 768 && isOpen) {
+                        closeMenu();
+                    }
+                });
+            })();
+    </script>
 </body>
 
 </html>
